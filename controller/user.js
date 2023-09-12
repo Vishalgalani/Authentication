@@ -41,6 +41,7 @@ exports.SIGNUP = async function (req, res, next) {
       status: "Success",
       message: "New User Created",
       data: data,
+      token
     })
   } catch (error) {
     res.status(404).json({
