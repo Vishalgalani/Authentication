@@ -5,13 +5,13 @@ const jwt = require('jsonwebtoken')
 
 exports.CHECKJWT = async function (req, res, next) {
   try {
-    console.log(req.headers);
+    // console.log(req.headers);
     const token = req.headers.authorization
     if(!token){
       throw new Error("Token not found")
     }
     const decode = jwt.verify(token, process.env.JwtSign)
-    console.log(decode.id);
+    // console.log(decode.id);
     const checkUser = await USER.findById(decode.id)
     if(!checkUser){
       throw new Error("user not found")
@@ -95,8 +95,8 @@ exports.ALLUSER = async function (req, res, next) {
 exports.DELETETUSER = async function (req, res, next) {
   try {
     const chekToken = (req.body.id = req.body.token)
-    console.log(chekToken);
-    console.log(req.headers);
+    // console.log(chekToken);
+    // console.log(req.headers);
     const token = req.headers.authorization
     if( !token   ){
       throw new Error("Token not found")
